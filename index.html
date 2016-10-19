@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+</head>
+<body>
+
+	<h1>The Psychic Game</h1>
+
+	<div id = "game">
+
+		  <p>Guess what letter I'm thinking of!</p>
+
+		  <p id="wins">Wins: 0 </p>
+
+		  <p id="losses">Losses: 0 </p>
+
+		  <p id="count">Guesses left: 10</p>
+
+		  <p id="userGuess"> Your Guesses so far: </p>
+
+	</div>	
+
+		<script type="text/javascript">
+
+		var computerChoices = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+
+		var wins = 0;
+		var losses = 0;
+		var count = 10;
+
+		var userGuess = document.getElementById('userGuess');
+
+		document.onkeyup = function(event) {
+
+			var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
+
+			var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+
+			if ((userGuess == 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z')){
+
+				if ((userGuess == computerGuess)){
+					wins++; 
+				}
+				else {
+					for (var i = 10; i = count.length; i = 0) {
+						count[i]--;
+					}
+				}
+
+				var html = "<p>Guess what letter I'm thinking of!</p>" +
+				"<p>Wins: " + wins + "</p>" +
+				"<p>Losses: " + losses + "</p>" +
+				"<p>Guesses left: " + count + "</p>" +
+				"<p>Your Guesses so far: " + userGuess + "</p>";
+
+				document.querySelector('#game').innerHTML = html;
+			}
+		}
+			
+		</script>
+	</div>
+
+</body>
+</html>
